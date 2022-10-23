@@ -29,6 +29,10 @@ app.use("/api/users", usersRoute)
 app.use("/api/hotels", hotelsRoute)
 app.use("/api/rooms", roomsRoute)
 
+app.use((err, req, res, next)=>{
+  return res.status(500).json("error")
+})
+
 app.listen(4400, ()=>{
     connect()
     console.log("connected to backend.")
